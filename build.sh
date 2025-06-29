@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
-# Exit on error
+# exit on error
 set -o errexit
 
-echo "Installing dependencies..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting build process..."
+
+# Install dependencies
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Installing dependencies..."
 pip install -r requirements.txt
 
-echo "Collecting static files..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Collecting static files..."
 python manage.py collectstatic --no-input
 
-echo "Running migrations..."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Running migrations..."
 python manage.py migrate
 
-echo "Build completed successfully!"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Creating sample data..."
+python manage.py create_sample_data
+
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Build complete!"
