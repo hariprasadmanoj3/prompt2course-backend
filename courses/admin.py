@@ -3,26 +3,25 @@ from .models import Course
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('topic', 'status', 'created_at', 'id')
-    list_filter = ('status', 'created_at')
-    search_fields = ('topic', 'id')
-    readonly_fields = ('id', 'created_at', 'updated_at')
+    list_display = ('title', 'topic', 'created_by', 'created_at')
+    list_filter = ('created_by', 'created_at')
+    search_fields = ('title', 'topic', 'description')
+    readonly_fields = ('created_at', 'updated_at')
     
     fieldsets = (
-        ('Basic Information', {
-            'fields': ('topic', 'status')
+        (None, {
+            'fields': ('title', 'topic')
         }),
-        ('Course Data', {
-            'fields': ('course_data',),
-            'classes': ('collapse',)
+        ('Content', {
+            'fields': ('description', 'content')
         }),
-        ('Timestamps', {
-            'fields': ('id', 'created_at', 'updated_at'),
+        ('Metadata', {
+            'fields': ('created_by', 'created_at', 'updated_at'),
             'classes': ('collapse',)
         }),
     )
     
     def get_readonly_fields(self, request, obj=None):
-        if obj:  # Editing existing object
-            return self.readonly_fields + ('topic',)
+        if obj:  # editing an existing object
+            return self.readonly_fields + ('created_at', 'updated_at')
         return self.readonly_fields
