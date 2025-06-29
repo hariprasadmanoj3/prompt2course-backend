@@ -4,35 +4,43 @@ from .models import Course
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = '__all__'
-        read_only_fields = ('id', 'created_at', 'updated_at')
+        fields = [
+            'id', 
+            'title', 
+            'description', 
+            'topic', 
+            'content',
+            'created_by', 
+            'created_at', 
+            'updated_at'
+        ]
+        read_only_fields = ['id', 'created_at', 'updated_at']
     
-    def create(self, validated_data):
-        # Auto-generate title and description from topic if not provided
-        topic = validated_data.get('topic', '')
+    def to_representation(self, instance):
+        """Add computed fields to the serialized data"""
+        data = super().to_representation(instance)
         
-        if not validated_data.get('title') and topic:
-            validated_data['title'] = f"Complete Guide to {topic}"
+        # Add helpful computed fields
+        data['time_ago'] = self.get_time_ago(instance.created_at)
+        data['word_count'] = len(instance.content.split()) if instance.content else 0
+        data['estimated_reading_time'] = max(1, (len(instance.content.split()) // 200)) if instance.content else 1
         
-        if not validated_data.get('description') and topic:
-            validated_data['description'] = f"A comprehensive course covering all aspects of {topic}"
+        return data
+    
+    def get_time_ago(self, created_at):
+        """Calculate time ago string"""
+        from django.utils import timezone
         
-        if not validated_data.get('content') and topic:
-            validated_data['content'] = f"""# {validated_data['title']}
-
-## Introduction
-Welcome to this comprehensive course on {topic}.
-
-## What You'll Learn
-- Fundamentals of {topic}
-- Practical applications
-- Best practices
-- Real-world examples
-
-## Course Structure
-This course is designed to take you from beginner to advanced level in {topic}.
-
-## Getting Started
-Let's begin your learning journey!"""
+        now = timezone.now()
+        diff = now - created_at
         
-        return super().create(validated_data)
+        if diff.days > 0:
+            return f"{diff.days} day{'s' if diff.days != 1 else ''} ago"
+        elif diff.seconds > 3600:
+            hours = diff.seconds // 3600
+            return f"{hours} hour{'s' if hours != 1 else ''} ago"
+        elif diff.seconds > 60:
+            minutes = diff.seconds // 60
+            return f"{minutes} minute{'s' if minutes != 1 else ''} ago"
+        else:
+            return "Just now"
