@@ -1,0 +1,32 @@
+[INFO] 2025-06-29 02:12:16,883 django.utils.autoreload 26780 13460 Watching for file changes with StatReloader
+[INFO] 2025-06-29 02:12:30,247 django.utils.autoreload 26780 13460 C:\Users\harip\Desktop\prompt2course\courses\apps.py changed, reloading.
+[INFO] 2025-06-29 02:12:30,675 django.utils.autoreload 25608 10148 Watching for file changes with StatReloader
+[INFO] 2025-06-29 02:12:41,041 django.utils.autoreload 25608 10148 C:\Users\harip\Desktop\prompt2course\courses\__init__.py changed, reloading.
+[INFO] 2025-06-29 02:12:41,450 django.utils.autoreload 752 27580 Watching for file changes with StatReloader
+[INFO] 2025-06-29 02:12:56,840 django.utils.autoreload 752 27580 C:\Users\harip\Desktop\prompt2course\prompt2course_backend\urls.py changed, reloading.
+[INFO] 2025-06-29 02:12:57,235 django.utils.autoreload 27020 17428 Watching for file changes with StatReloader
+[INFO] 2025-06-29 02:14:25,289 django.utils.autoreload 16672 4336 Watching for file changes with StatReloader
+[WARNING] 2025-06-29 02:15:01,242 django.request 16672 22820 Not Found: /api/course/undefined/
+[WARNING] 2025-06-29 02:15:01,243 django.server 16672 22820 "GET /api/course/undefined/ HTTP/1.1" 404 3172
+[WARNING] 2025-06-29 02:15:01,248 django.request 16672 22820 Not Found: /api/course/undefined/
+[WARNING] 2025-06-29 02:15:01,248 django.server 16672 22820 "GET /api/course/undefined/ HTTP/1.1" 404 3172
+[INFO] 2025-06-29 02:15:11,344 django.server 16672 22820 "POST /api/generate-course/ HTTP/1.1" 201 63039
+[INFO] 2025-06-29 02:15:12,395 django.server 16672 22820 "GET /api/course/38d35e0c-6a06-4243-9953-45a86a66ed4d/ HTTP/1.1" 200 62994
+[INFO] 2025-06-29 02:15:12,401 django.server 16672 26804 "GET /api/course/38d35e0c-6a06-4243-9953-45a86a66ed4d/ HTTP/1.1" 200 62994
+[WARNING] 2025-06-29 02:16:26,725 django.request 16672 24276 Not Found: /api/course/undefined/
+[WARNING] 2025-06-29 02:16:26,726 django.server 16672 24276 "GET /api/course/undefined/ HTTP/1.1" 404 3172
+[INFO] 2025-06-29 02:16:43,548 django.server 16672 24276 "POST /api/generate-course/ HTTP/1.1" 201 62155
+[INFO] 2025-06-29 02:16:44,602 django.server 16672 24276 "GET /api/course/550b1a07-052b-4629-9ff9-560e692db794/ HTTP/1.1" 200 62110
+[INFO] 2025-06-29 02:16:44,610 django.server 16672 11828 "GET /api/course/550b1a07-052b-4629-9ff9-560e692db794/ HTTP/1.1" 200 62110
+[WARNING] 2025-06-29 02:17:11,020 django.request 16672 11828 Not Found: /api/course/undefined/
+[WARNING] 2025-06-29 02:17:11,021 django.server 16672 11828 "GET /api/course/undefined/ HTTP/1.1" 404 3172
+[INFO] 2025-06-29 02:19:34,912 django.utils.autoreload 16672 4336 C:\Users\harip\Desktop\prompt2course\courses\views.py changed, reloading.
+[INFO] 2025-06-29 02:19:35,432 django.utils.autoreload 12056 17836 Watching for file changes with StatReloader
+[INFO] 2025-06-29 02:21:25,127 django.server 12056 23700 "OPTIONS /api/courses/ HTTP/1.1" 200 0
+[INFO] 2025-06-29 02:21:25,130 django.server 12056 23700 "OPTIONS /api/courses/ HTTP/1.1" 200 0
+[INFO] 2025-06-29 02:21:25,131 django.server 12056 23700 "OPTIONS /api/courses/ HTTP/1.1" 200 0
+[INFO] 2025-06-29 02:21:41,172 django.server 12056 23700 "POST /api/generate-course/ HTTP/1.1" 201 15239
+[INFO] 2025-06-29 02:21:42,222 django.server 12056 23700 "OPTIONS /api/courses/ HTTP/1.1" 200 0
+[INFO] 2025-06-29 02:21:42,224 django.server 12056 25228 "OPTIONS /api/courses/ HTTP/1.1" 200 0
+[INFO] 2025-06-29 02:21:42,524 django.server 12056 25228 "OPTIONS /api/courses/ HTTP/1.1" 200 0
+[INFO] 2025-06-29 02:21:50,412 django.server 12056 25228 "OPTIONS /api/courses/ HTTP/1.1" 200 0
