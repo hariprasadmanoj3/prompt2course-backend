@@ -1,1 +1,1 @@
-default_app_config = 'courses.apps.CoursesConfig'
+# This makes courses a Python package
